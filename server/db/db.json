@@ -1,0 +1,133 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Real Estate",
+      "slug": "real-estate"
+    },
+    {
+      "id": 2,
+      "name": "Vehicles",
+      "slug": "vehicles"
+    },
+    {
+      "id": 3,
+      "name": "Electronics",
+      "slug": "electronics"
+    },
+    {
+      "id": 4,
+      "name": "Services",
+      "slug": "services"
+    },
+    {
+      "id": 5,
+      "name": "Jobs",
+      "slug": "jobs"
+    }
+  ],
+  "cities": [
+    {
+      "id": 1,
+      "name": "New York"
+    },
+    {
+      "id": 2,
+      "name": "Los Angeles"
+    },
+    {
+      "id": 3,
+      "name": "Chicago"
+    },
+    {
+      "id": 4,
+      "name": "Houston"
+    },
+    {
+      "id": 5,
+      "name": "Phoenix"
+    },
+    {
+      "id": "2aa03f0d-50aa-4816-afdd-75502df8616a",
+      "created_at": "2026-04-18T06:14:01.166Z",
+      "name": "Lahore"
+    },
+    {
+      "id": "a50231c4-95df-431a-aa92-38a72363916b",
+      "created_at": "2026-04-18T06:14:01.167Z",
+      "name": "Karachi"
+    },
+    {
+      "id": "6c31d43c-bd36-4f68-811d-415f0a936702",
+      "created_at": "2026-04-18T06:14:01.168Z",
+      "name": "Islamabad"
+    },
+    {
+      "id": "e83f3b97-46ac-4916-8774-da435864aef3",
+      "created_at": "2026-04-18T06:14:01.169Z",
+      "name": "Faisalabad"
+    },
+    {
+      "id": "80107153-5206-488e-9dd0-a8b1a4c768f7",
+      "created_at": "2026-04-18T06:14:01.170Z",
+      "name": "Multan"
+    }
+  ],
+  "users": [
+    {
+      "id": "f8e8448c-db39-4ec2-b199-4ec436cc052b",
+      "created_at": "2026-04-18T06:14:01.164Z",
+      "email": "hammadmukhtar128@gmail.com",
+      "password_hash": "$2b$12$TNaaSgXV/ghCUlI9tVYkuemf3zvUtHn8vnHCWwrEB8ehgNKuE6LiS",
+      "full_name": "Super Admin",
+      "role": "admin",
+      "is_verified": true
+    },
+    {
+      "id": "6d52a5ca-9a8e-47c5-91e3-26b1ac5aee9b",
+      "full_name": "Hammad Admin",
+      "email": "hammadmukhtar128@gmail.com",
+      "password_hash": "$2a$10$TJ1X/FkYAVjS5cOYNq3KX.wcdXHx4pkC7U8gJHnCpqDu2V3O1gqdm",
+      "role": "admin",
+      "created_at": "2026-04-18T06:15:03.701Z"
+    },
+    {
+      "id": "82fa03db-c39d-4373-b806-9d0fb12bed1f",
+      "created_at": "2026-04-19T03:07:11.499Z",
+      "full_name": "Hammad Updated",
+      "email": "hammad_client_test2@example.com",
+      "password_hash": "$2b$10$IDjRO3WDMM004SwAgOopc.5zAa5GvpHUzEApD9iCyxF2xuUGKjfQe",
+      "role": "client",
+      "is_verified": false
+    }
+  ],
+  "ads": [
+    {
+      "id": "f100bdbc-fd29-4581-b3ee-c560427bc18b",
+      "created_at": "2026-04-18T06:19:27.406Z",
+      "user_id": "627daece-b718-4ca5-bd24-bcf2e14f51d5",
+      "title": "Sell of pridor bike ",
+      "slug": "sell-of-pridor-bike",
+      "description": "Sell of pridor bike 100 cc 2023 model",
+      "category_id": 2,
+      "city_id": "e83f3b97-46ac-4916-8774-da435864aef3",
+      "package_type": "standard",
+      "status": "payment_submitted",
+      "transaction_id": "1273824783",
+      "payment_method": "JazzCash"
+    }
+  ],
+  "payments": [
+    {
+      "id": "49ec904b-8459-47b9-b710-865833ab64c2",
+      "created_at": "2026-04-18T06:19:54.061Z",
+      "ad_id": "f100bdbc-fd29-4581-b3ee-c560427bc18b",
+      "user_id": "627daece-b718-4ca5-bd24-bcf2e14f51d5",
+      "transaction_reference": "1273824783",
+      "amount": 20,
+      "payment_method": "JazzCash",
+      "screenshot_url": null,
+      "status": "submitted"
+    }
+  ]
+}

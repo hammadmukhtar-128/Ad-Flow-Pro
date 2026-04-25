@@ -22,28 +22,31 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-gray-900 text-white shadow-md">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold tracking-tighter text-blue-400">
+    <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
+      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <Link href="/" className="text-2xl font-black tracking-tight text-blue-600 flex items-center gap-2">
+          <span className="bg-blue-600 text-white p-1 rounded-lg">AF</span>
           AdFlow Pro
         </Link>
-        <nav className="space-x-6 flex items-center">
-          <Link href="/explore" className="hover:text-blue-300 transition-colors">Explore</Link>
+        <nav className="space-x-8 flex items-center text-sm font-semibold text-gray-600">
+          <Link href="/explore" className="hover:text-blue-600 transition-colors">Explore</Link>
           
           {isLogged ? (
             <>
-              <Link href="/dashboard" className="text-sm font-semibold px-3 py-1 bg-gray-800 rounded hover:bg-gray-700">
+              <Link href="/dashboard" className="px-4 py-2 bg-blue-50 text-blue-700 rounded-full hover:bg-blue-100 transition-all font-bold">
                 Dashboard ({role})
               </Link>
-              <button onClick={handleLogout} className="hover:text-red-400 transition-colors">
+              <button onClick={handleLogout} className="text-gray-500 hover:text-red-600 transition-colors">
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link href="/login" className="hover:text-blue-300 transition-colors">Login</Link>
-              <Link href="/admin/login" className="text-red-400 hover:text-red-300 transition-colors">Admin Login</Link>
-              <Link href="/register" className="bg-blue-600 px-4 py-2 rounded text-white hover:bg-blue-700 transition">Register</Link>
+              <Link href="/login" className="hover:text-blue-600 transition-colors text-gray-700">Login</Link>
+              <Link href="/admin/login" className="text-gray-400 hover:text-gray-900 transition-colors">Admin</Link>
+              <Link href="/register" className="bg-blue-600 px-6 py-2 rounded-full text-white hover:bg-blue-700 transition shadow-lg shadow-blue-200">
+                Register
+              </Link>
             </>
           )}
         </nav>

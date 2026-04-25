@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import axios from "axios";
+import api from "@/lib/api";
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ export default function AdminLoginPage() {
     try {
       setLoading(true);
 
-      const res = await axios.post("http://localhost:5000/api/auth/admin/login", {
+      const res = await api.post("/auth/admin/login", {
         email,
         password,
       });

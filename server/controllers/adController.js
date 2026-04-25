@@ -190,6 +190,17 @@ const payForAd = async (req, res) => {
     console.log('[PAYMENT] Request body:', req.body);
     const { transactionId, amount, paymentMethod, senderName, screenshotUrl } = req.body;
     
+    let formattedMethod = paymentMethod.toLowerCase().replace(/\s+/g, '_');
+    let finalTxnId = transactionId;
+    
+    // The database check constraint only allows specific values.
+    // If the selected method isn't explicitly supported by the DB constraint, 
+    // map it to 'bank_transfer' and append the actual method to the transaction reference.
+    if (!['card', 'jazzcash', 'easypaisa', 'bank_transfer'].includes(formattedMethod)) {
+      formattedMethod = 'bank_transfer';
+      finalTxnId = `${transactionId} [${paymentMethod}]`;
+    }
+    
     // Check if ad belongs to user
     const { data: ad, error: fetchError } = await supabase
       .from('ads')
@@ -208,9 +219,9 @@ const payForAd = async (req, res) => {
       .insert({
         ad_id: id,
         user_id: req.user.id,
-        transaction_reference: transactionId,
+        transaction_reference: finalTxnId,
         amount: amount,
-        payment_method: paymentMethod,
+        payment_method: formattedMethod,
         package_type: ad.package_type, // satisfy constraint
         screenshot_url: screenshotUrl || null,
         status: 'submitted'
@@ -226,8 +237,8 @@ const payForAd = async (req, res) => {
       .from('ads')
       .update({ 
         status: 'payment_submitted',
-        transaction_id: transactionId,
-        payment_method: paymentMethod
+        transaction_id: finalTxnId,
+        payment_method: formattedMethod
       })
       .eq('id', id)
       .select()

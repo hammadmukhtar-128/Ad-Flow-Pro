@@ -1,4 +1,4 @@
-const fs = require('fs');
+// const fs = require('fs'); // Removed for Vercel support
 const { supabase } = require('../db/connect');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -10,8 +10,7 @@ const generateToken = (id, role) => {
 };
 
 function logAuthError(message, data) {
-  const entry = `[${new Date().toISOString()}] ${message} ${JSON.stringify(data)}\n`;
-  fs.appendFileSync('./auth-error.log', entry);
+  console.error(`[AUTH ERROR] ${message}`, data);
 }
 
 const register = async (req, res) => {

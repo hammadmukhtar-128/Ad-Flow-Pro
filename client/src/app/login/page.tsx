@@ -25,6 +25,8 @@ export default function Login() {
     } catch (err: any) {
       if (err.response?.data?.errors) {
         setError(err.response.data.errors.join(', '));
+      } else if (err.message === 'Network Error') {
+        setError('Network Error: Cannot connect to the server. Please ensure your API URL is correct.');
       } else {
         setError(err.response?.data?.message || 'Login failed');
       }

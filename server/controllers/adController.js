@@ -228,8 +228,14 @@ const payForAd = async (req, res) => {
       });
       
     if (paymentError) {
-      console.log('[PAYMENT] Insert error:', paymentError);
-      return res.status(500).json({ message: 'Failed to record payment: ' + (paymentError.message || '') });
+      console.error('[PAYMENT ERROR] Database insert failed:', {
+        error: paymentError,
+        data: { ad_id: id, user_id: req.user.id, transaction_reference: finalTxnId }
+      });
+      return res.status(500).json({ 
+        message: 'Failed to record payment details. Please ensure your Transaction ID is unique.',
+        details: paymentError.message 
+      });
     }
     
     // Update ad status
@@ -244,10 +250,13 @@ const payForAd = async (req, res) => {
       .select()
       .single();
       
-    if (error) throw error;
+    if (error) {
+      console.error('[PAYMENT ERROR] Ad status update failed:', error);
+      throw error;
+    }
     res.json({ message: 'Payment submitted successfully', ad: data });
   } catch (error) {
-    console.log("SERVER ERROR in payForAd:", error);
+    console.error("SERVER ERROR in payForAd:", error);
     res.status(500).json({ message: error.message || 'Server Error' });
   }
 };

@@ -1,5 +1,40 @@
-.env 
-**/.env 
-.env.backup 
-**/.env.backup 
-node_modules 
+# ── Environment files (NEVER commit these) ───────────────────────────────────
+.env
+.env.local
+.env.development
+.env.production
+.env.backup
+**/.env
+**/.env.local
+**/.env.backup
+
+# ── Dependencies ──────────────────────────────────────────────────────────────
+node_modules/
+**/node_modules/
+
+# ── Build outputs ─────────────────────────────────────────────────────────────
+.next/
+dist/
+build/
+out/
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+server/auth-error.log
+
+# ── OS files ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── IDE / Editor ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+coverage/
+.cache/
+*.tsbuildinfo
